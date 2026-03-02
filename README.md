@@ -194,6 +194,122 @@ Objectif : Transformer le bytecode Android en format JAR pour une analyse altern
 
 Objectif : Comparer les différentes approches de décompilation pour une analyse plus complète.
 
+Comparaison : JADX-GUI vs JD-GUI
+
+![Import OVA](https://github.com/user-attachments/assets/58a45665-5cbd-4a5b-806b-72b827e716c1)
+
+## Task 7 — Rédiger le mini-rapport (20-30 min)
+
+📄 Rapport d’analyse statique – UnCrackable Level 1
+Informations générales
+
+Date d’analyse : 23/2/2026
+
+Analyste : Badr Eddine Drider - Othman Ait Lhaj Loutfi
+
+APK analysé : UnCrackable-Level1.apk
+
+Version : 1.0
+
+Provenance : OWASP Mobile Security – Crackmes Android
+
+Outils utilisés :
+
+JADX GUI
+
+dex2jar
+
+JD-GUI
+
+Résumé exécutif
+
+Cette analyse statique a révélé plusieurs faiblesses de sécurité liées à la logique applicative côté client dans l’application UnCrackable Level 1.
+Les principales préoccupations concernent :
+
+la présence d’une logique de vérification de mot de passe côté client,
+
+l’absence de protection efficace contre la rétro-ingénierie,
+
+l’exposition d’une activité via un intent-filter.
+
+Le niveau de risque global est évalué comme Moyen.
+
+Actions prioritaires recommandées :
+
+Déplacer la logique sensible (vérification de secret) côté serveur.
+
+Mettre en place une obfuscation renforcée et des mécanismes anti-reverse.
+
+Restreindre les composants exportés inutilement.
+
+Constats détaillés
+Constat #1 : Vérification du mot de passe côté client
+
+Sévérité : Élevée
+Description :
+Le mécanisme de validation du mot de passe est implémenté directement dans le code de l’application. Cette logique peut être identifiée et modifiée via rétro-ingénierie (JADX/JD-GUI).
+Localisation :
+sg.vantagepoint.uncrackable1.MainActivity
+Impact potentiel :
+Un attaquant peut contourner la vérification ou forcer l’affichage du message “Correct”, permettant un accès non autorisé.
+Remédiation recommandée :
+Déplacer la logique de validation côté serveur ou utiliser un mécanisme cryptographique robuste avec stockage sécurisé (Keystore, API distante).
+
+Constat #2 : Protection insuffisante contre la rétro-ingénierie
+
+Sévérité : Moyenne
+Description :
+Le code est facilement lisible via JADX et JD-GUI. L’obfuscation est faible et permet de comprendre rapidement la logique métier.
+Localisation :
+Classes Java décompilées (MainActivity et méthodes associées).
+Impact potentiel :
+Facilite l’analyse, la modification et le contournement des mécanismes de sécurité.
+Remédiation recommandée :
+Activer une obfuscation forte (R8/ProGuard), utiliser des mécanismes anti-debug et anti-tampering.
+
+Constat #3 : Activité exposée via intent-filter
+
+Sévérité : Faible à Moyenne
+Description :
+L’activité principale contient un intent-filter (MAIN/LAUNCHER), ce qui la rend accessible depuis l’extérieur.
+Localisation :
+AndroidManifest.xml – MainActivity
+Impact potentiel :
+Peut élargir la surface d’attaque si des fonctions sensibles sont accessibles sans contrôle.
+Remédiation recommandée :
+Définir explicitement android:exported="false" pour les composants non destinés à être accessibles par d’autres applications.
+
+Annexes
+Permissions demandées
+
+Aucune permission critique n’est déclarée dans le manifeste.
+
+Composants exportés
+
+sg.vantagepoint.uncrackable1.MainActivity (via intent-filter MAIN/LAUNCHER)
+
+Conclusion
+
+L’application UnCrackable Level 1 présente des faiblesses intentionnelles liées à la logique de sécurité côté client, ce qui est cohérent avec son objectif pédagogique.
+L’utilisation combinée de JADX et JD-GUI a permis d’obtenir une vue complète du code et des ressources, confirmant que les mécanismes de protection sont insuffisants face à une analyse statique.
+
+## Task 8 — Nettoyage (5 min)
+Objectif : Assurer la conformité et la sécurité de votre environnement de travail.
+
+![Import OVA](https://github.com/user-attachments/assets/3ed5fca4-2868-4a56-af5b-90c33509522d)
+
+Organisez les fichiers d'analyse :
+
+![Import OVA](https://github.com/user-attachments/assets/a8c98a86-29d3-4747-add5-9add6a8c6ba0)
+
+Supprimez les artefacts temporaires:
+
+![Import OVA](https://github.com/user-attachments/assets/708bd751-1c57-499a-b4c7-c4ac3750993a)
+
+
+
+
+
 
 
 
