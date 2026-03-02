@@ -120,22 +120,28 @@ AndroidManifest.xml : Un onglet est présent, correspondant à l'analyse précé
 
 
 1. URLs et Endpoints
+
 Valeur trouvée : http://schemas.android.com/apk/res/android
 
 Emplacement : Balise <manifest>, attribut xmlns:android.
 
 Risque : Nul.
 
-Description : Il s'agit de l'espace de noms standard pour Android, indispensable au fonctionnement du fichier XML.
+Il s'agit de l'espace de noms standard pour Android, indispensable au fonctionnement du fichier XML.
 
+######################################### 
 2. Informations d'authentification
+
 Mots-clés (token, key, secret, password) : Aucun trouvé.
 
 Risque : Nul.
 
-Description : Aucune clé d'API ou mot de passe n'est codé en dur dans les attributs du manifeste.
+Aucune clé d'API ou mot de passe n'est codé en dur dans les attributs du manifeste.
+
+####################################
 
 3. Indicateurs de mode de développement
+   
 Mots-clés (debuggable, usesCleartextTraffic) : Absents.
 
 Indicateur trouvé : android:allowBackup="true"
@@ -144,8 +150,21 @@ Emplacement : Balise <application>.
 
 Risque : Moyen.
 
-Description : Bien que ce ne soit pas un flag de "debug" pur, laisser la sauvegarde activée permet d'extraire les données de l'application via ADB sur un appareil non rooté, facilitant l'analyse locale des fichiers sensibles par un attaquant.
+Bien que ce ne soit pas un flag de "debug" pur, laisser la sauvegarde activée permet d'extraire les données de l'application via ADB sur un appareil non rooté, facilitant l'analyse locale des fichiers sensibles par un attaquant.
+
+####################################
+
+4. Autres éléments notables
+Package : owasp.mstg.uncrackable1.
+
+Composant exposé : MainActivity est accessible via un intent-filter (catégorie LAUNCHER), ce qui est le comportement normal pour l'entrée principale de l'application.
 
 
+## Task 5 — Convertir DEX → JAR avec dex2jar (15-20 min)
 
+Objectif : Transformer le bytecode Android en format JAR pour une analyse alternative.
+
+![Import OVA](https://github.com/user-attachments/assets/c157e6f5-77e5-43a6-adc2-27070ea68290)
+
+![Import OVA](https://github.com/user-attachments/assets/c5eb0249-d2a2-412a-9adc-75b9b33dc500)
 
