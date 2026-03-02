@@ -164,7 +164,39 @@ Composant exposé : MainActivity est accessible via un intent-filter (catégorie
 
 Objectif : Transformer le bytecode Android en format JAR pour une analyse alternative.
 
+1-Extrayez les fichiers DEX de l'APK :
+
 ![Import OVA](https://github.com/user-attachments/assets/c157e6f5-77e5-43a6-adc2-27070ea68290)
 
 ![Import OVA](https://github.com/user-attachments/assets/c5eb0249-d2a2-412a-9adc-75b9b33dc500)
+
+![Import OVA](https://github.com/user-attachments/assets/2f8e54e8-a34d-48cc-9deb-9f080a26f13a)
+
+########################
+
+2-Vérifiez les fichiers DEX extraits :
+
+![Import OVA](https://github.com/user-attachments/assets/03eb6e4f-ebf1-4a89-8ed3-2a0ff556fbbe)
+
+#######################
+3-Convertissez chaque fichier DEX en JAR :
+
+![Import OVA](https://github.com/user-attachments/assets/021a1fa4-7cb4-445d-9150-4a95a2050c87)
+
+#########################
+
+4-En cas de multi-dex, vous pouvez créer un script pour traiter tous les fichiers :
+
+![Import OVA](https://github.com/user-attachments/assets/e1ca8a86-489a-4713-bf5a-24cd8d7422b4)
+
+
+## Task 6 — Comparaison JADX vs JD-GUI (15-20 min)
+
+Objectif : Comparer les différentes approches de décompilation pour une analyse plus complète.
+
+
+
+
+
+
 
