@@ -32,7 +32,29 @@ Explication : 50 4B correspond aux initiales PK (Phil Katz), le créateur du for
 
 4-Listez le contenu de l'APK :
 
+Dans cette phase, nous n'utilisons pas d'interface graphique. Nous utilisons PowerShell pour interroger directement la structure binaire de l'APK. C'est ce qu'on appelle l'analyse d'inventaire.
+
 ![Import OVA](https://github.com/user-attachments/assets/a7c5ea63-f87f-44df-bc08-c317ebee5f1c)
+
+A. Analyse détaillée des commandes
+
+Add-Type -Assembly System.IO.Compression.FileSystem : Charge la bibliothèque .NET dédiée à la gestion des systèmes de fichiers compressés.
+
+## Utilité : Par défaut, PowerShell ne sait pas "lire" l'intérieur d'un ZIP/APK. Cette commande lui donne les outils nécessaires pour manipuler l'archive sans logiciel tiers (type WinRAR).
+
+---
+
+$apk = Join-Path (Get-Location).Path "UnCrackable-Level1.apk : Crée une variable nommée $apk contenant le chemin absolu vers le fichier cible.
+
+## Cela évite les erreurs de frappe et permet de réutiliser le nom du fichier dans toutes les commandes suivantes de manière propre.
+
+---
+
+Test-Path $apk: Vérifie l'existence réelle du fichier à l'emplacement spécifié.
+
+## C'est une étape de contrôle. Si le résultat est True, la voie est libre. Si c'est False, inutile de continuer, il y a une erreur de chemin.
+
+---
 
 5-Calculez le hash de l'APK pour traçabilité :
 
