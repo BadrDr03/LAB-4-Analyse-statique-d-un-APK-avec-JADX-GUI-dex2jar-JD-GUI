@@ -219,7 +219,18 @@ Composant exposé : MainActivity est accessible via un intent-filter (catégorie
 
 ## Task 5 — Convertir DEX → JAR avec dex2jar 
 
-Objectif : Transformer le bytecode Android en format JAR pour une analyse alternative.
+Objectif : Transformer le code machine d'Android en code lisible par un humain. 
+
+---
+
+Qu'est-ce qu'un fichier DEX ? 
+Les fichiers .dex (Dalvik Executable) contiennent le code final exécuté par le processeur du téléphone. Ce format est compressé et illisible directement.
+
+Pourquoi convertir en JAR ? 
+Le format .jar est un standard Java. Cette conversion est l'étape clé du Reverse Engineering : elle nous permet de passer d'un langage machine à un langage de haut niveau (Java).
+
+Une fois le fichier app.jar généré, nous pouvons utiliser un décompilateur comme JD-GUI pour lire le code source original, chercher des vulnérabilités logiques ou des secrets (mots de passe, clés API) mal protégés.
+---
 
 1-Extrayez les fichiers DEX de l'APK :
 
