@@ -81,6 +81,13 @@ Traçabilité : Si tu travailles en équipe ou si tu publies un rapport, donner 
 
 ![Import OVA](https://github.com/user-attachments/assets/af37fc33-867d-4388-a104-d62a928d102d)
 
+Qu'est-ce que le AndroidManifest.xml ?
+Le Manifeste est un fichier XML obligatoire présent à la racine de chaque APK. C'est le contrat entre le développeur et le système d'exploitation Android.
+
+À quoi sert-il ? Il présente l'application au système. Il définit qui elle est, ce qu'elle a le droit de faire (permissions) et quels sont ses composants (écrans, services).
+
+Pourquoi l'analyser ? En cybersécurité, c'est la première source d'information. On y cherche les failles de configuration (permissions excessives, mode debug activé, composants exposés).
+
 ## Analysez le manifeste en détail :
 
 
