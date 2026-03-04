@@ -153,8 +153,6 @@ button_verify : Verify
 
 edit_text : Enter the Secret String
 
-thanks : Remerciements à Bernhard Mueller et mention du projet MSTG.
-
 ###########################
 
 2. Autres fichiers de configuration
@@ -200,6 +198,8 @@ Indicateur trouvé : android:allowBackup="true"
 Emplacement : Balise <application>.
 
 Risque : Moyen.
+
+Pourquoi c'est une vulnérabilité ? Un attaquant ayant un accès physique au téléphone peut utiliser les outils de développement (ADB - Android Debug Bridge) pour extraire ces données sur son propre ordinateur, même si le téléphone n'est pas rooté. Si l'application stocke des jetons de session (tokens) ou des informations personnelles, elles seront volées instantanément.
 
 Bien que ce ne soit pas un flag de "debug" pur, laisser la sauvegarde activée permet d'extraire les données de l'application via ADB sur un appareil non rooté, facilitant l'analyse locale des fichiers sensibles par un attaquant.
 
