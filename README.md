@@ -40,27 +40,36 @@ A. Analyse détaillée des commandes
 
 Add-Type -Assembly System.IO.Compression.FileSystem : Charge la bibliothèque .NET dédiée à la gestion des systèmes de fichiers compressés.
 
-## Utilité : Par défaut, PowerShell ne sait pas "lire" l'intérieur d'un ZIP/APK. Cette commande lui donne les outils nécessaires pour manipuler l'archive sans logiciel tiers (type WinRAR).
+** Par défaut, PowerShell ne sait pas "lire" l'intérieur d'un ZIP/APK. Cette commande lui donne les outils nécessaires pour manipuler l'archive sans logiciel tiers (type WinRAR). **
 
 ---
 
 $apk = Join-Path (Get-Location).Path "UnCrackable-Level1.apk : Crée une variable nommée $apk contenant le chemin absolu vers le fichier cible.
 
-## Cela évite les erreurs de frappe et permet de réutiliser le nom du fichier dans toutes les commandes suivantes de manière propre.
+** Cela évite les erreurs de frappe et permet de réutiliser le nom du fichier dans toutes les commandes suivantes de manière propre. **
 
 ---
 
 Test-Path $apk: Vérifie l'existence réelle du fichier à l'emplacement spécifié.
 
-## C'est une étape de contrôle. Si le résultat est True, la voie est libre. Si c'est False, inutile de continuer, il y a une erreur de chemin.
+** C'est une étape de contrôle. Si le résultat est True, la voie est libre. Si c'est False, inutile de continuer, il y a une erreur de chemin. **
 
 ---
 
 5-Calculez le hash de l'APK pour traçabilité :
 
+Afin d’assurer la traçabilité et l’intégrité de notre échantillon, nous générons une signature unique pour le fichier APK
+
 ![Import OVA](https://github.com/user-attachments/assets/5aa6a1d6-a31a-40ac-9ff6-763eaf7e1eba)
 
-6-(Optionnel) Vérifiez la signature de l'APK :
+Pourquoi a-t-on fait cette étape ? 
+Le Hash est comme une empreinte digitale numérique unique pour ton fichier.
+
+Intégrité : Si tu modifies ne serait-ce qu'un seul pixel dans une image de l'APK ou une seule ligne de code, la valeur du Hash changera complètement. Calculer le hash au début permet de prouver que le fichier n'a pas été altéré durant l'analyse.
+
+Identification unique : Dans le monde de la cybersécurité, on ne se fie pas au nom du fichier (qui peut être changé facilement). On identifie un échantillon de malware ou une application par son Hash.
+
+Traçabilité : Si tu travailles en équipe ou si tu publies un rapport, donner le Hash permet aux autres de s'assurer qu'ils travaillent exactement sur la même version de l'APK que toi.
 
 ## Task 2 — Extraire/obtenir l'APK 
 
