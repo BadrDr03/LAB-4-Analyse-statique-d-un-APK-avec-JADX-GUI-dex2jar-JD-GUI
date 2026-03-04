@@ -63,7 +63,7 @@ Afin d’assurer la traçabilité et l’intégrité de notre échantillon, nous
 ![Import OVA](https://github.com/user-attachments/assets/5aa6a1d6-a31a-40ac-9ff6-763eaf7e1eba)
 
 Pourquoi a-t-on fait cette étape ? 
-Le Hash est comme une empreinte digitale numérique unique pour ton fichier.
+Le Hash est comme une empreinte digitale numérique unique pourle fichier.
 
 Intégrité : Si tu modifies ne serait-ce qu'un seul pixel dans une image de l'APK ou une seule ligne de code, la valeur du Hash changera complètement. Calculer le hash au début permet de prouver que le fichier n'a pas été altéré durant l'analyse.
 
@@ -391,10 +391,16 @@ Supprimez les artefacts temporaires:
 ![Import OVA](https://github.com/user-attachments/assets/708bd751-1c57-499a-b4c7-c4ac3750993a)
 
 
+---
 
 
+🏁 Conclusion du Laboratoire
 
+Ce travail nous a permis de réaliser une analyse statique complète de l’application Uncrackable Level 1.
 
+À travers le reverse engineering (DEX vers JAR), nous avons pu déconstruire l’application pour accéder à sa logique interne. L’analyse du manifeste a révélé des failles de configuration, tandis que l’exploration du code source nous a permis de comprendre comment l’application protège ses secrets.
+
+Ce processus suit la méthodologie standard de l’audit de sécurité mobile : Identification -> Reconnaissance -> Reverse Engineering -> Analyse -> Rapport/Nettoyage.
 
 
 
