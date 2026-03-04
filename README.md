@@ -1,6 +1,6 @@
 # LAB-4-Analyse-statique-d-un-APK-avec-JADX-GUI-dex2jar-JD-GUI
 
-## Task 1 — Préparer le workspace et vérifier l'APK (10 min)
+## Task 1 — Préparer le workspace et vérifier l'APK 
 
 Objectif : Créer un environnement de travail organisé et vérifier l'intégrité de l'APK.
 
@@ -26,11 +26,11 @@ Objectif : Créer un environnement de travail organisé et vérifier l'intégrit
 
 6-(Optionnel) Vérifiez la signature de l'APK :
 
-## Task 2 — Extraire/obtenir l'APK (5-10 min)
+## Task 2 — Extraire/obtenir l'APK 
 
 ![Import OVA](https://github.com/user-attachments/assets/459ae766-68e8-41c5-8eb7-0b6b5138ec3a)
 
-## Task 3 — Analyse avec JADX GUI (20-30 min)
+## Task 3 — Analyse avec JADX GUI 
 
 1-Lancez JADX GUI :
 
@@ -39,7 +39,6 @@ Objectif : Créer un environnement de travail organisé et vérifier l'intégrit
 ## Analysez le manifeste en détail :
 
 
-Gemini a dit
 D'après l'image du fichier AndroidManifest.xml de l'application Uncrackable Level 1, voici l'analyse détaillée des éléments demandés :
 
 1. Informations d'identification et SDK
@@ -114,7 +113,7 @@ styles.xml : Un onglet est présent pour ce fichier, mais son contenu n'est pas 
 
 AndroidManifest.xml : Un onglet est présent, correspondant à l'analyse précédente.
 
-## Task 4 — Recherche de chaînes sensibles (15-20 min)
+## Task 4 — Recherche de chaînes sensibles
 
 ![Import OVA](https://github.com/user-attachments/assets/f115d042-cdaa-43b3-8249-747b71765d13)
 
@@ -160,7 +159,7 @@ Package : owasp.mstg.uncrackable1.
 Composant exposé : MainActivity est accessible via un intent-filter (catégorie LAUNCHER), ce qui est le comportement normal pour l'entrée principale de l'application.
 
 
-## Task 5 — Convertir DEX → JAR avec dex2jar (15-20 min)
+## Task 5 — Convertir DEX → JAR avec dex2jar 
 
 Objectif : Transformer le bytecode Android en format JAR pour une analyse alternative.
 
@@ -248,10 +247,13 @@ Constat #1 : Vérification du mot de passe côté client
 Sévérité : Élevée
 Description :
 Le mécanisme de validation du mot de passe est implémenté directement dans le code de l’application. Cette logique peut être identifiée et modifiée via rétro-ingénierie (JADX/JD-GUI).
+
 Localisation :
 sg.vantagepoint.uncrackable1.MainActivity
+
 Impact potentiel :
 Un attaquant peut contourner la vérification ou forcer l’affichage du message “Correct”, permettant un accès non autorisé.
+
 Remédiation recommandée :
 Déplacer la logique de validation côté serveur ou utiliser un mécanisme cryptographique robuste avec stockage sécurisé (Keystore, API distante).
 
@@ -259,11 +261,15 @@ Constat #2 : Protection insuffisante contre la rétro-ingénierie
 
 Sévérité : Moyenne
 Description :
+
 Le code est facilement lisible via JADX et JD-GUI. L’obfuscation est faible et permet de comprendre rapidement la logique métier.
+
 Localisation :
 Classes Java décompilées (MainActivity et méthodes associées).
+
 Impact potentiel :
 Facilite l’analyse, la modification et le contournement des mécanismes de sécurité.
+
 Remédiation recommandée :
 Activer une obfuscation forte (R8/ProGuard), utiliser des mécanismes anti-debug et anti-tampering.
 
@@ -272,10 +278,13 @@ Constat #3 : Activité exposée via intent-filter
 Sévérité : Faible à Moyenne
 Description :
 L’activité principale contient un intent-filter (MAIN/LAUNCHER), ce qui la rend accessible depuis l’extérieur.
+
 Localisation :
 AndroidManifest.xml – MainActivity
+
 Impact potentiel :
 Peut élargir la surface d’attaque si des fonctions sensibles sont accessibles sans contrôle.
+
 Remédiation recommandée :
 Définir explicitement android:exported="false" pour les composants non destinés à être accessibles par d’autres applications.
 
@@ -293,7 +302,7 @@ Conclusion
 L’application UnCrackable Level 1 présente des faiblesses intentionnelles liées à la logique de sécurité côté client, ce qui est cohérent avec son objectif pédagogique.
 L’utilisation combinée de JADX et JD-GUI a permis d’obtenir une vue complète du code et des ressources, confirmant que les mécanismes de protection sont insuffisants face à une analyse statique.
 
-## Task 8 — Nettoyage (5 min)
+## Task 8 — Nettoyage 
 Objectif : Assurer la conformité et la sécurité de votre environnement de travail.
 
 ![Import OVA](https://github.com/user-attachments/assets/3ed5fca4-2868-4a56-af5b-90c33509522d)
