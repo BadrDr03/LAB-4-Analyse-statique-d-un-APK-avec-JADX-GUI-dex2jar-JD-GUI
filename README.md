@@ -8,13 +8,27 @@ Objectif : Créer un environnement de travail organisé et vérifier l'intégrit
 
 ![Import OVA](https://github.com/user-attachments/assets/74f18d3f-9741-401e-abef-3d2d57e1f2d5)
 
+---
+
 2-Copiez l'APK à analyser dans ce dossier.
 
 ![Import OVA](https://github.com/user-attachments/assets/6de23a64-a793-4b7a-8255-4916a2cb9765)
 
-3-Vérifiez que l'APK est bien une archive ZIP :
+---
+
+3-Vérifiez que l'APK est bien une archive ZIP en utilisant le Magic Number:
 
 ![Import OVA](https://github.com/user-attachments/assets/22c9181d-3be4-4788-adfe-5710a2ce21fb)
+
+Action : Lecture des 4 premiers octets du fichier en format Hexadécimal.
+
+Commande : Get-Content .\app-debug.apk -TotalCount 4 | Format-Hex
+
+Résultat : Le code obtenu est 50 4B.
+
+Explication : 50 4B correspond aux initiales PK (Phil Katz), le créateur du format ZIP. Cela prouve que l'APK n'est qu'un dossier compressé contenant le code et les ressources de l'application. Sans cette signature, le fichier serait considéré comme corrompu ou d'un autre type.
+
+---
 
 4-Listez le contenu de l'APK :
 
