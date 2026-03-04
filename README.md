@@ -374,6 +374,12 @@ L’utilisation combinée de JADX et JD-GUI a permis d’obtenir une vue complè
 ## Task 8 — Nettoyage 
 Objectif : Assurer la conformité et la sécurité de votre environnement de travail.
 
+Une fois l’analyse statique terminée, il est crucial de procéder au nettoyage de l’espace de travail pour des raisons de sécurité et d’organisation.
+
+1. Archivage des résultats : Création d’un dossier ./results pour regrouper les livrables finaux (Fichier JAR décompilé et rapport d’analyse).
+2. Suppression des artefacts : Suppression du dossier temporaire ./dex_out qui contenait les fichiers DEX bruts.
+3. Sécurisation : Élimination de toute trace d’informations sensibles (tokens, logs de debug) générées durant les tests.
+
 ![Import OVA](https://github.com/user-attachments/assets/3ed5fca4-2868-4a56-af5b-90c33509522d)
 
 Organisez les fichiers d'analyse :
