@@ -176,7 +176,13 @@ Emplacement : Balise <manifest>, attribut xmlns:android.
 
 Risque : Nul.
 
-Il s'agit de l'espace de noms standard pour Android, indispensable au fonctionnement du fichier XML.
+Bien que l'URL commence par http://, elle ne représente aucune vulnérabilité.
+
+Nature : Il s'agit d'un Espace de noms XML (Namespace).
+
+Rôle : Elle sert uniquement d'identifiant pour définir le schéma des attributs Android dans le fichier XML.
+
+Sécurité : Aucun trafic réseau n'est généré vers cette adresse lors de l'exécution de l'application. Elle est statique et obligatoire pour la compilation de n'importe quel APK.
 
 ######################################### 
 2. Informations d'authentification
