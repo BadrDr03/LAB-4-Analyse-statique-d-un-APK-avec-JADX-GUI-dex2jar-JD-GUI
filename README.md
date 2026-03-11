@@ -159,8 +159,6 @@ edit_text : Enter the Secret String
 
 network_security_config.xml : Non visible dans les onglets ouverts.
 
-styles.xml : Un onglet est présent pour ce fichier, mais son contenu n'est pas affiché sur l'image.
-
 AndroidManifest.xml : Un onglet est présent, correspondant à l'analyse précédente.
 
 ## Task 4 — Recherche de chaînes sensibles
